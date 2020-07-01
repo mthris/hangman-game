@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Menu from '../components/Menu.vue';
+import Game from '../components/Game.vue';
 
 Vue.use(VueRouter)
 
@@ -8,15 +8,12 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Menu',
-    component: Menu
+    component: () => import(/* webpackChunkName: "about" */ '../components/Menu.vue')
   },
   {
     path: '/board',
     name: 'Game',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../components/Game.vue')
+    component: Game
   }
 ]
 
